@@ -77,10 +77,21 @@ var kittenGenerator = {
         "/" + photo.getAttribute("id") +
         "_" + photo.getAttribute("secret") +
         "_s.jpg";
+  },
+  
+  /**
+   * Navigates to a photo of a puppy.
+   */
+   goToPicture: function() {
+    console.log('going to puppy picture');
+    chrome.tabs.create({url: "http://www.tehcute.com/pics/201109/is-this-a-kitten-or-a-puppy--big.jpg"});
   }
 };
 
 // Run our kitten generation script as soon as the document's DOM is ready.
 document.addEventListener('DOMContentLoaded', function () {
   kittenGenerator.requestKittens();
+});
+document.addEventListener('click', function () {
+	kittenGenerator.goToPicture();
 });
